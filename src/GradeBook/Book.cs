@@ -21,10 +21,12 @@ namespace GradeBook
         {
             if(grade > 0 && grade <= 100)
             {
-
+                grades.Add(grade);
             }
-
-            grades.Add(grade);
+            else 
+            {
+                Console.WriteLine("Invalid Value");
+            }
         }
 
         public void GetLowGrade()

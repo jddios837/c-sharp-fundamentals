@@ -35,6 +35,24 @@ namespace GradeBook
                 r += item;
             }
 
+            // var index = 0;
+            // do
+            // {
+            //     grades[0];
+            //     index++;
+            // } while (index < grades.Count)
+
+            // while (index < grades.Count)
+            // {   
+            //     grades[0];
+            //     index++;
+            // }
+
+            // for (int index = 0; index < gredes.Count; index++)
+            // {
+            //     grades[0];
+            // }
+
             r /= grades.Count;
             Console.WriteLine($"The average grade is {r:N1}");
 
@@ -49,7 +67,7 @@ namespace GradeBook
             var book = new Book("Juan");
             book.AddGrade(22);
             book.AddGrade(45);
-            book.AddGrade(66);
+            book.AddGrade(166);
 
             //book.ComputeAverageGrade();
 
