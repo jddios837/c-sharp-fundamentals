@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace GradeBook
 {
-    class Program
+    class Program_Old
     {
-        static void Main(string[] args)
+        static void Main_old(string[] args)
         {
             var x = 34.1;
             var y = 23.3;

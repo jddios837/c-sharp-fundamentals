@@ -7,20 +7,17 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-            var book = new Book("Jua Gomez");
+            var book = new Book("Juan Gomez");
             book.AddGrade(54.23);
             book.AddGrade(74.23);
             book.AddGrade(94.23);
 
-            var stats = book.GetStatistics();
+            var result = book.GetStatistics();
 
-            Console.WriteLine($"Lowest {stats.Low}");
-            Console.WriteLine($"Highest {stats.High}");
-            Console.WriteLine($"Average {stats.Average:N1}");
-            Console.WriteLine($"Letter {stats.Letter}");
-            
-
-            
+            Console.WriteLine($"Lowest {result.Low}");
+            Console.WriteLine($"Highest {result.High}");
+            Console.WriteLine($"Average {result.Average:N1}");
+            Console.WriteLine($"Letter {result.Letter}");
         }
     }
 
