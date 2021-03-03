@@ -41,6 +41,7 @@ namespace GradeBook
 
             var result = book.GetStatistics();
 
+            Console.WriteLine(Book.test1); // se llama directamente desde la clase
             Console.WriteLine($"Lowest {result.Low}");
             Console.WriteLine($"Highest {result.High}");
             Console.WriteLine($"Average {result.Average:N1}");

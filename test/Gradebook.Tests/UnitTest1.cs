@@ -4,8 +4,34 @@ using GradeBook;
 
 namespace Gradebook.Tests
 {
+    public delegate string WriteLogDelegate(string logMessage);
     public class UnitTest1
     {
+        int count = 0;
+
+        [Fact]
+        public void WriteLogDelegateCanPointMethod()
+        {
+            WriteLogDelegate log = ReturnMessage;
+            log += ReturnMessage;
+            log += IncrementCount;
+
+            var result = log("Hello!");
+            Assert.Equal(3, count);
+        }
+
+        string IncrementCount(string message)
+        {
+            count++;
+            return message.ToLower();
+        }
+
+        string ReturnMessage(string message)
+        {
+            count++;
+            return message;
+        }
+
         [Fact]
         public void Test1()
         {

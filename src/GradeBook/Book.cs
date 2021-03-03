@@ -3,25 +3,51 @@ using System.Collections.Generic;
 
 namespace GradeBook
 {
-    public class Book
+    public delegate void GradeAddedDelegate(object sender, EventArgs args);
+
+    public class NamedObject : Object
+    {
+        public NamedObject(string name)
+        {
+            Name = name;
+        }
+
+        public string Name
+        {
+            get;
+            set;
+        }
+    }
+
+    public class Book : NamedObject
     {
         //private List<double> grades = new List<double>();
         private List<double> grades;
         private string name;
+        readonly string category = "Science"; // is posible to change in on the constructos
+        
+        const string test = "Math"; 
+        public const string test1 = "Math1"; 
 
         private double highGrade = double.MinValue;
         private double lowGrade = double.MaxValue;
 
-        public Book(string name)
+        //public string Name { get => name; private set => name = value; }
+
+        public Book(string name) : base(name)
         {
             grades = new List<double>();
-            this.name = name;
+            Name = name;
         }
         public void AddGrade(double grade)
         {
-            if(grade > 0 && grade <= 100)
+            if (grade > 0 && grade <= 100)
             {
                 grades.Add(grade);
+                if(GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }    
             }
             else 
             {
@@ -48,6 +74,8 @@ namespace GradeBook
                     break;
             }
         }
+
+        public event GradeAddedDelegate GradeAdded;
 
         public void GetLowGrade()
         {
@@ -130,5 +158,6 @@ namespace GradeBook
             this.GetHighGrade();
             this.ComputeAverageGrade();
         }
+
     }
 }
