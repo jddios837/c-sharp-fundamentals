@@ -19,6 +19,11 @@ namespace GradeBook
         }
     }
 
+    public abstract class BookBase : NamedObject
+    {
+
+    }
+
     public class Book : NamedObject
     {
         //private List<double> grades = new List<double>();
