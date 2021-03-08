@@ -64,7 +64,7 @@ namespace GradeBook
             testclass.ComputeAverageGrade(grades);
 
             Console.WriteLine("Using a new class"); // snipper cw
-            var book = new Book("Juan");
+            var book = new InMemoryBook("Juan");
             book.AddGrade(22);
             book.AddGrade(45);
             book.AddGrade(166);

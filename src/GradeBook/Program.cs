@@ -7,10 +7,26 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-            var book = new Book("Juan Gomez");
+            //var book = new InMemoryBook("Juan Gomez");
+            IBook book = new DiskBook("Juan Gomez");
+            EnterGrades(book);
+            //book.AddGrade(54.23);
+            //book.AddGrade(74.23);
+            //book.AddGrade(94.23);
 
+            var result = book.GetStatistics();
+
+            Console.WriteLine(InMemoryBook.test1); // se llama directamente desde la clase
+            Console.WriteLine($"Lowest {result.Low}");
+            Console.WriteLine($"Highest {result.High}");
+            Console.WriteLine($"Average {result.Average:N1}");
+            Console.WriteLine($"Letter {result.Letter}");
+        }
+
+        private static void EnterGrades(IBook book)
+        {
             string input;
-            
+
             //Console.WriteLine($"Letra {input}");
             do
             {
@@ -35,17 +51,6 @@ namespace GradeBook
                 }
 
             } while (input != "q");
-            //book.AddGrade(54.23);
-            //book.AddGrade(74.23);
-            //book.AddGrade(94.23);
-
-            var result = book.GetStatistics();
-
-            Console.WriteLine(Book.test1); // se llama directamente desde la clase
-            Console.WriteLine($"Lowest {result.Low}");
-            Console.WriteLine($"Highest {result.High}");
-            Console.WriteLine($"Average {result.Average:N1}");
-            Console.WriteLine($"Letter {result.Letter}");
         }
     }
 
